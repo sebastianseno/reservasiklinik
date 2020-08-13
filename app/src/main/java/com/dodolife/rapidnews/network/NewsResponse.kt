@@ -1,7 +1,7 @@
 package com.dodolife.rapidnews.network
 
 import com.google.gson.annotations.SerializedName
-
+import java.io.Serializable
 
 data class NewsResponse(
     @SerializedName("status")
@@ -9,8 +9,8 @@ data class NewsResponse(
     @SerializedName("totalResults")
     val totalResults: Int,
     @SerializedName("articles")
-    val articles: List<Article>
-)
+    val articles: List<Article>?
+) : Serializable
 
 data class Article(
     @SerializedName("source")
@@ -29,11 +29,11 @@ data class Article(
     val publishedAt: String,
     @SerializedName("content")
     val content: String
-)
+) : Serializable
 
 data class Source(
     @SerializedName("id")
-    val id: Int?,
+    val id: String?,
     @SerializedName("name")
     val name: String?
-)
+) : Serializable

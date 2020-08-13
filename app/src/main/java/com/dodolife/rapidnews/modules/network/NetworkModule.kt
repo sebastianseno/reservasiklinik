@@ -58,7 +58,6 @@ class NetworkModule  {
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.API_BASE_URL)
-            .addConverterFactory(jsonChecker)
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
