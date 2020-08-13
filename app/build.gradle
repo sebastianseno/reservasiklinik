@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.dodolife.rapidnews"
-        minSdkVersion 22
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_BASE_URL", base_url
+            buildConfigField "String", "API_KEY", api_key
         }
 
         release {
@@ -35,6 +36,7 @@ android {
 
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_BASE_URL", base_url
+            buildConfigField "String", "API_KEY", api_key
         }
     }
 

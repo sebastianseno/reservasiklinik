@@ -2,6 +2,7 @@ package com.dodolife.rapidnews.modules.network
 
 import android.util.Log
 import com.dodolife.rapidnews.BuildConfig
+import com.dodolife.rapidnews.network.NewsServices
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -16,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
@@ -81,6 +83,12 @@ class NetworkModule  {
             )
         }
         return builder.build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesNewsServices(retrofit: Retrofit): NewsServices {
+        return  retrofit.create(NewsServices::class.java)
     }
 
 }
