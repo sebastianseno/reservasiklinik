@@ -1,6 +1,6 @@
 # Reservasi Mobile Apps
 
-Library included on this use for this Apps :
+Library included on this Apps :
 - Hilt (for Dependecy Injection)
 - Retrofit, OkHttp (for Networking)
 - Coroutine (for asynchronous)
