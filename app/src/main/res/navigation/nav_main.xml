@@ -9,5 +9,29 @@
         android:id="@+id/homeFragment"
         android:name="com.dodolife.rapidnews.ui.HomeFragment"
         android:label="Pilih Kategori"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.dodolife.rapidnews.ui.NewsListFragment"
+        android:label="Pilih Kategori"
+        tools:layout="@layout/fragment_news_list" >
+        <action
+            android:id="@+id/action_homeFragment_to_webView"
+            app:destination="@id/webView" />
+    </fragment>
+
+    <activity
+        android:id="@+id/webView"
+        android:name="com.dodolife.rapidnews.ui.WebViewActivity"
+        tools:layout="@layout/activity_web_view" >
+        <argument
+            android:name="url"
+            app:argType="string"/>
+    </activity>
 </navigation>

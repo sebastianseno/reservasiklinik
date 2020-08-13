@@ -1,4 +1,4 @@
-package com.dodolife.rapidnews.ui
+package com.dodolife.rapidnews.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
