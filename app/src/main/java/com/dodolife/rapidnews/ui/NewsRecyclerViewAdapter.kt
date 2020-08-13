@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.dodolife.rapidnews.R
 
-import com.dodolife.rapidnews.ui.dummy.DummyContent.DummyItem
 
 class NewsRecyclerViewAdapter(
-    private val values: List<DummyItem>
 ) : RecyclerView.Adapter<NewsRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,13 +17,13 @@ class NewsRecyclerViewAdapter(
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.item_number)
@@ -35,4 +33,5 @@ class NewsRecyclerViewAdapter(
             return super.toString() + " '" + contentView.text + "'"
         }
     }
+
 }
