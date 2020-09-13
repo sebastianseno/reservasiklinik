@@ -1,4 +1,4 @@
-package com.dodolife.rapidnews.ui
+package com.dodolife.rapidnews.ui.home
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dodolife.rapidnews.BuildConfig
+import com.dodolife.rapidnews.extensions.State
 import com.dodolife.rapidnews.network.Article
 import com.dodolife.rapidnews.network.NewsServices
 import kotlinx.coroutines.launch
@@ -17,21 +18,18 @@ class MainViewModel @ViewModelInject constructor(
 
     val newsData = MutableLiveData<List<Article>>()
 
-    val stateSet = MutableLiveData<Lifecycle.State>()
+    val stateSet = MutableLiveData<State>()
 
     fun refreshNews(date: String) {
-        stateSet.postValue(Lifecycle.State.STARTED)
+        stateSet.postValue(State.LOADING)
         viewModelScope.launch {
             try {
-              val response = services.getNewsEverything(
-                    "Health", date, "publishedAt", BuildConfig.API_KEY
-                )
+              val response = services.getNewsEverything("covid", date, "publishedAt", BuildConfig.API_KEY)
                 newsData.value = response.articles
-                stateSet.postValue(Lifecycle.State.CREATED)
-
+                stateSet.postValue(State.SUCCESS)
             } catch (error: Exception) {
                 Log.e("senoo", "error : ", error)
-                stateSet.postValue(Lifecycle.State.DESTROYED)
+                stateSet.postValue(State.ERROR)
             }
         }
     }

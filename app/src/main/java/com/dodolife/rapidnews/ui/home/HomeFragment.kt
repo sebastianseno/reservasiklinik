@@ -1,7 +1,8 @@
-package com.dodolife.rapidnews.ui
+package com.dodolife.rapidnews.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.time.LocalDateTime
 import kotlin.collections.ArrayList
 import com.dodolife.rapidnews.utils.observe
+import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
@@ -51,6 +53,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         initNewsViewPager()
 
+
         observe(viewModel.newsData) {
             newsBannerAdapter.items = it?: emptyList()
         }
@@ -60,7 +63,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             when (it) {
                 Lifecycle.State.DESTROYED -> Toast.makeText(requireContext(), "Something Wrong", Toast.LENGTH_SHORT).show()
                 Lifecycle.State.CREATED -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                else -> Log.d("error", it?.name ?: "")
             }
+        }
+
+        doctorButton.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDoctorListFragment())
         }
     }
 

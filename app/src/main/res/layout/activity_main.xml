@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.home.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,6 +49,7 @@
 
 
         <EditText
+            android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -60,7 +61,6 @@
             android:paddingEnd="8dp"
             android:fontFamily="@font/rubik"
             android:textSize="14sp"
-            android:hint="Cari Klinik / Rumah Sakit"
             android:background="@drawable/bg_solid_grey" />
 
         <fragment

@@ -1,13 +1,14 @@
-package com.dodolife.rapidnews.ui
+package com.dodolife.rapidnews.ui.news
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.dodolife.rapidnews.R
+import com.dodolife.rapidnews.extensions.State
 import com.dodolife.rapidnews.modules.BaseFragment
+import com.dodolife.rapidnews.ui.home.MainViewModel
 import com.dodolife.rapidnews.ui.adapter.NewsRecyclerViewAdapter
 import com.dodolife.rapidnews.utils.observe
 import kotlinx.android.synthetic.main.fragment_news_list.*
@@ -40,15 +41,14 @@ class NewsListFragment : BaseFragment(R.layout.fragment_news_list) {
         }
 
         observe(viewModel.stateSet) {
-            swipeRefresh.isRefreshing = it == Lifecycle.State.STARTED
+            swipeRefresh.isRefreshing = it == State.LOADING
             when (it) {
-                Lifecycle.State.DESTROYED -> Toast.makeText(requireContext(), "Something Wrong", Toast.LENGTH_SHORT).show()
-                Lifecycle.State.CREATED -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                State.SUCCESS -> Toast.makeText(requireContext(), "Something Wrong", Toast.LENGTH_SHORT).show()
+                State.ERROR -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
-
 
     private fun onClick(s: String) {
         findNavController().navigate(

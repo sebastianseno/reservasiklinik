@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/swipeRefresh"
-    tools:context="com.dodolife.rapidnews.ui.HomeFragment">
+    tools:context="com.dodolife.rapidnews.ui.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -198,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="KLINIK TERDEKAT"
+                        android:text="Klinik Terdekat"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/hospitalButton"
                         app:layout_constraintStart_toStartOf="@+id/hospitalButton"
@@ -223,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="RIWAYAT"
+                        android:text="Riwayat"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/riwayatButton"
                         app:layout_constraintStart_toStartOf="@+id/riwayatButton"
@@ -248,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="DATA SCAN"
+                        android:text="Data Scan"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/scanButton"
                         app:layout_constraintStart_toStartOf="@+id/scanButton"
@@ -283,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="NOTIFIKASI"
+                        android:text="Notifikasi"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/notifButton"
                         app:layout_constraintStart_toStartOf="@+id/notifButton"
@@ -308,21 +308,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="BERI NILAI"
+                        android:text="Beri Nilai"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/rateButton"
                         app:layout_constraintStart_toStartOf="@+id/rateButton"
                         app:layout_constraintTop_toBottomOf="@+id/rateButton" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/settingsButton"
+                        android:id="@+id/doctorButton"
                         android:layout_width="57dp"
                         android:layout_height="67dp"
                         android:layout_marginTop="44dp"
                         android:layout_marginEnd="32dp"
                         app:backgroundTint="#DD127B"
                         app:cornerRadius="18dp"
-                        app:icon="@drawable/ic_settings"
+                        app:icon="@drawable/ic_stethoscope"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -333,11 +333,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/rubik"
-                        android:text="PENGATURAN"
+                        android:text="Dokter"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="@+id/settingsButton"
-                        app:layout_constraintStart_toStartOf="@+id/settingsButton"
-                        app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
+                        app:layout_constraintEnd_toEndOf="@+id/doctorButton"
+                        app:layout_constraintStart_toStartOf="@+id/doctorButton"
+                        app:layout_constraintTop_toBottomOf="@+id/doctorButton" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
